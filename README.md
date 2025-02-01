@@ -1,4 +1,4 @@
-Agente Hardware - Cliente/Servidor em Python
+*Agente Hardware - Cliente/Servidor em Python*
 
 Este projeto consiste na implementação de uma aplicação Cliente/Servidor para monitoramento remoto de hardware e software, desenvolvida em Python utilizando sockets (UDP ou TCP). O servidor gerencia múltiplos clientes e pode obter informações detalhadas do sistema operacional, histórico de navegação, programas instalados e status de conectividade dos dispositivos conectados.
 
