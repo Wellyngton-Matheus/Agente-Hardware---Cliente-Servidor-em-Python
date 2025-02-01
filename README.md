@@ -7,14 +7,21 @@ A comunicação entre servidor e cliente ocorre via sockets (UDP ou TCP). O prot
 📤 Mensagens do Cliente → Servidor
 Comando	Descrição
 ONLINE ->	Enviado quando o cliente se conecta. Contém: HOST, IP, Usuário Logado
+
 HEARTBEAT ->	Mensagem periódica indicando que o cliente ainda está ativo
+
 SHUTDOWN	-> Indica que o cliente foi encerrado corretamente
 
 📥 Mensagens do Servidor → Cliente
 Comando	Descrição
 GET_HARDWARE ->	Solicita informações de hardware (CPU, RAM, Disco, SO)
+
 GET_SOFTWARE ->	Solicita a lista de programas instalados
+
 GET_HISTORY ->	Solicita o histórico de navegação dos navegadores suportados
+
 GET_USER_INFO ->	Solicita informações detalhadas do usuário logado
+
 GET_ONLINE_AGENTS ->	Lista os agentes conectados e seus detalhes
+
 EXIT ->	Ordena ao cliente que se desligue da memória
