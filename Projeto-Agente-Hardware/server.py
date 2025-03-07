@@ -11,7 +11,7 @@ SERVER_IP = '0.0.0.0'
 SERVER_PORT = 5000
 
 # Configurações do Telegram
-TELEGRAM_TOKEN = "7611534086:AAEWQutAzVlwqEAXwWryIlJyzO87Zkr9C8o"
+TELEGRAM_TOKEN = "TOKEN_AQUI"
 TELEGRAM_URL = f'https://api.telegram.org/bot{TELEGRAM_TOKEN}/'
 TELEGRAM_UPDATE_ID = None  # Para rastrear as últimas atualizações
 
