@@ -1,34 +1,45 @@
-# 🖥️ Agente Hardware - Cliente/Servidor em Python
+# **Projeto Agente Hardware**
 
-Este projeto consiste na implementação de uma aplicação **Cliente/Servidor** para monitoramento remoto de hardware e software, desenvolvida em **Python** utilizando **sockets (TCP)**. O servidor gerencia múltiplos clientes e pode obter informações detalhadas sobre o sistema operacional, histórico de navegação, programas instalados e status de conectividade dos dispositivos conectados.
+Este projeto é uma aplicação Cliente/Servidor baseada em sockets UDP para monitoramento remoto de máquinas via um bot no Telegram.
 
-## 🔄 Protocolo de Comunicação
+## **📌 Funcionalidades**
+### **Servidor**
+- Gerencia conexões de múltiplos agentes simultaneamente.
+- Detecta agentes ativos e inativos.
+- Responde a comandos do Telegram para:
+  - Listar agentes online.
+  - Obter informações de hardware de um agente específico.
+  - Listar programas instalados nos agentes conectados.
+  - Obter histórico de navegação dos agentes.
+  - Obter informações detalhadas do usuário logado nos agentes.
 
-A comunicação entre **servidor** e **cliente** ocorre via **sockets (TCP)**. O protocolo define os seguintes formatos de mensagens:
-
-### 📤 Mensagens do Cliente → Servidor
-
-| **Comando**   | **Descrição** |
-|--------------|-------------|
-| `ONLINE` | Enviado quando o cliente se conecta. Contém: **HOST**, **IP** e **Usuário Logado** |
-| `HEARTBEAT` | Mensagem periódica indicando que o cliente ainda está ativo |
-| `SHUTDOWN` | Indica que o cliente foi encerrado corretamente |
-
-### 📥 Mensagens do Servidor → Cliente
-
-| **Comando**   | **Descrição** |
-|--------------|-------------|
-| `GET_HARDWARE` | Solicita informações de hardware (**CPU, RAM, Disco, SO**) |
-| `GET_SOFTWARE` | Solicita a lista de programas instalados |
-| `GET_HISTORY` | Solicita o histórico de navegação dos navegadores suportados |
-| `GET_USER_INFO` | Solicita informações detalhadas do usuário logado |
-| `GET_ONLINE_AGENTS` | Lista os agentes conectados e seus detalhes |
-| `EXIT` | Ordena ao cliente que se desligue da memória |
+### **Agente**
+- Se registra no servidor informando host, IP e usuário logado.
+- Executa em segundo plano e evita múltiplas instâncias.
+- Se reconecta automaticamente caso o servidor esteja offline.
+- Responde às solicitações do servidor, como:
+  - Envio de informações de hardware.
+  - Lista de programas instalados.
+  - Histórico de navegação.
+  - Informações do usuário logado.
 
 ---
 
-## ⚙️ Como Executar
+## **📂 Estrutura do Projeto**
+/agente_hardware │
+── server.py # Código do servidor │
+── agent.py # Código do agente │
+── README.md # Documentação do projeto
 
-### 1️⃣ Iniciar o Servidor
+---
+
+
+---
+
+## **📦 Dependências**
+- **Python 3.x**
+- **Bibliotecas:** `requests`, `socket`, `threading`, `json`, `sys`, `time`, `os`, `platform`, `getpass`, `subprocess`
+
+Instale as dependências com:
 ```bash
-python servidor.py
+pip install -r requirements.txt
